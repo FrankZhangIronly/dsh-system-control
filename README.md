@@ -4,6 +4,8 @@
 
 The plugin is shipped as a **two-sided DSH plugin**: a host (Node) half that owns the `/system` RPC channel and calls the existing `appExit` exit hook, and a browser half that renders the sidebar button + the centered modal dialog.
 
+> 🌏 **[中文版本 / Chinese version](./README.zh-CN.md)** is also available.
+
 ---
 
 ## Features
