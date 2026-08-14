@@ -1,0 +1,10 @@
+# dsh-system-control bundle patch: mount the host half as a host-plane row.
+# The row injects `connection` so it activates only after the Connection host
+# service exists (channel registration needs it); appExit is provided by the
+# cmdline launcher before the tree mounts. This row publishes no service — it
+# only consumes `connection` and registers one RPC channel — so it sits in the
+# host plane like the webserver/connection rows.
+- insert:
+    - id: system-control
+      name: dsh-system-control
+      inject: [connection]

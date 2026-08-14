@@ -1,0 +1,36 @@
+{
+  "name": "dsh-system-control",
+  "version": "0.1.0",
+  "description": "DSH web 系统控制插件：侧边栏底部「系统」菜单（重启=退出码42 / 关闭=退出码0），经 /system RPC 通道（loopback 权限）调用宿主 appExit。双面：bundle patch 挂宿主半，dsh.client 装配浏览器半。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "license": "MIT"
+}
